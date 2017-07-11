@@ -3,14 +3,15 @@ $( document ).ready(function() {
 
   function updateCounter(event){
     counter = $(this).val().length;
+    let el = $(this).closest('.new-tweet').find('.counter');
     if(counter <= 140){
-      $('.counter').css('color','black');
-      $('.counter').text(counter);
+      el.css('color','black');
+      el.text(counter);
     } else {
-      $('.counter').css('color','red');
+      el.css('color','red');
       counter = 140 - $(this).val().length;
     }
-    $('.counter').text(counter);
+    el.text(counter);
   }
 
   // create eventListeners

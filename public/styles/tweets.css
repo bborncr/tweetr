@@ -1,0 +1,61 @@
+.tweet *:hover {
+  color: #474747;
+}
+
+.tweet {
+  color: #bebebe;
+  background: white;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  margin: 1em 2em 1em 2em;
+}
+
+.tweet header {
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 70px;
+  width: 100%;
+}
+
+.tweet h1 {
+  color: #bebebe;
+  float: left;
+  font-size: 165%;
+  margin: 0;
+  padding: 15px 0 0 5px;
+}
+
+.tweet h2 {
+  color: #bebebe;
+  float: right;
+  font-size: 100%;
+  margin: 0;
+  padding: 15px 15px 0 5px;
+}
+
+.tweet img {
+  float: left;
+  margin: 5px;
+  height: 55px;
+  width: 55px;
+}
+
+.tweet-footer {
+  border-top: 1px solid #eee;
+  height: 2em;
+  margin: 0;
+}
+
+.tweet-footer p {
+  color: #bebebe;
+  margin-top: 6px;
+  padding-bottom: .5em;
+  padding-left: .5em;
+}
+
+.tweet-text {
+  color: #bebebe;
+  margin: 0;
+  padding: .5em;
+}
