@@ -1,8 +1,5 @@
-.new-tweet {
-  background: #eee;
-  margin: 0em 2em 0em 2em;
-  padding: .5em;
-  border-radius: 5px;
+.counter {
+  float: right;
 }
 
 .form-section-heading {
@@ -17,15 +14,11 @@
   width: 100%;
 }
 
-form .new-tweet {
-  float: left;
-}
-
-section .new-tweet {
-}
-
-.counter {
-  float: right;
+.new-tweet {
+  background: #eee;
+  margin: 0em 2em 0em 2em;
+  padding: .5em;
+  border-radius: 5px;
 }
 
 .primary-input {
