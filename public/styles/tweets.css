@@ -1,3 +1,8 @@
+.tweet:hover h1 {
+  color: red;
+  background-color: gray;
+}
+
 .tweet {
   color: #bebebe;
   background: white;
