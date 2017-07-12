@@ -1,52 +1,9 @@
-
-
-// Fake data taken from tweets.json
-// var data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": {
-//         "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-//         "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-//         "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-//       },
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": {
-//         "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-//         "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-//         "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-//       },
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   },
-//   {
-//     "user": {
-//       "name": "Johann von Goethe",
-//       "avatars": {
-//         "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-//         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-//         "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-//       },
-//       "handle": "@johann49"
-//     },
-//     "content": {
-//       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-//     },
-//     "created_at": 1461113796368
-//   }
-// ];
+// cleans up possible XSS strings
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 function createTweetElement(tweet) {
 
@@ -58,7 +15,8 @@ function createTweetElement(tweet) {
   $header.append($(`<h2>${tweet.user.handle}</h2>`));
 
   var $body = $("<p>").addClass('tweet-text');
-  $body.append(`${tweet.content.text}`);
+
+  $body.append(`${escape(tweet.content.text)}`);
 
   var $footer = $("<footer>").addClass('tweet-footer');
   $footer.append($(`<p>${date}</p>`));
@@ -81,7 +39,6 @@ function loadTweets(){
       renderTweets(tweets);
     })
 }
-
 
 function renderTweets(tweets) {
   $('#tweets-container').empty();
@@ -108,7 +65,7 @@ $( document ).ready(function(){
 
     event.preventDefault();
     var $tweetInput = $(this);
-    var numChars = $tweetInput.find('textarea').val().length;
+    var numChars = $tweetInput.find('.primary-input').val().length;
     if(numChars > 140){
       alert("Tweets are limited to < 140 characters!");
       return;
@@ -120,11 +77,10 @@ $( document ).ready(function(){
     $.ajax({
       method: 'POST',
       url: $tweetInput.attr('action'),
-      data: $tweetInput.find('textarea').serialize()
+      data: $tweetInput.find('.primary-input').serialize()
     }).done(function() {
       loadTweets();
-      $tweetInput.find('textarea').empty();
-      $tweetInput.append('textarea');
+      $tweetInput.find('.primary-input').val("");
     });
 
   });
