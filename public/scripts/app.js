@@ -85,11 +85,13 @@ function renderTweets(tweets) {
 $( document ).ready(function(){
 
   // Tweet form event listener and ajax submit
-  $('form[action="/tweets/"]').on('submit', function (event) {
+  $('form').on('submit', function (event) {
+
     event.preventDefault();
     var $tweetInput = $(this);
     // console.log($tweetInput);
     console.log($tweetInput.find('textarea').val());
+    console.log($tweetInput.find('textarea').serialize());
 
     $.ajax({
       method: 'POST',
