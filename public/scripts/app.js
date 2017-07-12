@@ -101,6 +101,14 @@ $( document ).ready(function(){
 
     event.preventDefault();
     var $tweetInput = $(this);
+    var numChars = $tweetInput.find('textarea').val().length;
+    if(numChars > 140){
+      alert("Tweets are limited to < 140 characters!");
+      return;
+    } else if(numChars === 0){
+      alert("Message is empty!");
+      return;
+    }
 
     $.ajax({
       method: 'POST',
