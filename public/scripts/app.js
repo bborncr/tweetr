@@ -96,6 +96,13 @@ function renderTweets(tweets) {
 // Better to put the Document Ready wrap down here...less easy to screw things up
 $( document ).ready(function(){
 
+  // Compose button event listener
+  $('.compose-button').on('click', function(event){
+    $('.new-tweet').slideToggle("slow", function() {
+    });
+    $(".primary-input").focus();
+  });
+
   // Tweet form event listener and ajax submit
   $('form').on('submit', function (event) {
 
