@@ -1,10 +1,11 @@
-// cleans up possible XSS strings
+// sanitize possible XSS strings
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
+// feed in a tweet object, returns the tweet <article> html
 function createTweetElement(tweet) {
 
   var date = new Date(tweet.created_at);
@@ -30,24 +31,22 @@ function createTweetElement(tweet) {
   return $tweet;
 }
 
-function loadTweets(){
-  $.getJSON('/tweets')
-    .done((tweets) => {
-      //console.log(tweets);
-    })
-    .done((tweets) => {
-      renderTweets(tweets);
-    })
-}
-
+// clears the html, loops through the tweets and assembles the final html
 function renderTweets(tweets) {
   $('#tweets-container').empty();
   for (tweet in tweets){
     var tweetData = tweets[tweet];
-    // console.log(tweetData);
     var $tweet = createTweetElement(tweetData);
     $('#tweets-container').prepend($tweet);
   }
+}
+
+// goes to http://url/tweets and gets the json formatted tweets
+function loadTweets(){
+  $.getJSON('/tweets')
+    .done((tweets) => {
+      renderTweets(tweets);
+    });
 }
 
 // Better to put the Document Ready wrap down here...less easy to screw things up
@@ -55,8 +54,7 @@ $( document ).ready(function(){
 
   // Compose button event listener
   $('.compose-button').on('click', function(event){
-    $('.new-tweet').slideToggle("slow", function() {
-    });
+    $('.new-tweet').slideToggle("slow");
     $(".primary-input").focus();
   });
 
