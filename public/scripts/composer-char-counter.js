@@ -6,12 +6,12 @@ $( document ).ready(function() {
     let el = $(this).closest('.new-tweet').find('.counter');
     if(counter <= 140){
       el.css('color','black');
-      el.text(counter);
+      el.text(140 - counter);
     } else {
       el.css('color','red');
       counter = 140 - $(this).val().length;
+      el.text(counter);
     }
-    el.text(counter);
   }
 
   // create eventListeners
