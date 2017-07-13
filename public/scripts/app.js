@@ -8,7 +8,6 @@ function escape(str) {
 // feed in a tweet object, returns the tweet <article> html
 function createTweetElement(tweet) {
 
-  // var date = new Date(tweet.created_at);
   var date = moment(tweet.created_at).fromNow();
 
   var $header = $("<header>").addClass('tweet-header');
@@ -21,7 +20,7 @@ function createTweetElement(tweet) {
   $body.append(`${escape(tweet.content.text)}`);
 
   var $footer = $("<footer>").addClass('tweet-footer');
-  $footer.append($(`<p>${date}</p>`));
+  $footer.append($(`<p>${date}<i class="fa fa-heart"></i><i class="fa fa-retweet"></i><i class="fa fa-flag"></i></p>`));
 
   // final asssembly
   var $tweet = $('<article>').addClass('tweet');
@@ -32,9 +31,10 @@ function createTweetElement(tweet) {
   return $tweet;
 }
 
-// clears the html, loops through the tweets and assembles the final html
+// clears the html, resets the counter to 140, loops through the tweets and assembles the final html
 function renderTweets(tweets) {
   $('#tweets-container').empty();
+  $('.counter').text('140');
   for (tweet in tweets){
     var tweetData = tweets[tweet];
     var $tweet = createTweetElement(tweetData);
@@ -48,7 +48,7 @@ function loadTweets(){
     .done((tweets) => {
       renderTweets(tweets);
     });
-  }
+}
 
 // Better to put the Document Ready wrap down here...less easy to screw things up
 $( document ).ready(function(){

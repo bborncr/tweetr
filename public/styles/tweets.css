@@ -46,6 +46,16 @@
   color: #474747;
 }
 
+.tweet i {
+  float: right;
+  padding-right: 10px;
+  display: none;
+}
+
+.tweet:hover i {
+  display: inline-block;
+}
+
 .tweet img {
   float: left;
   margin: 5px;
@@ -73,8 +83,6 @@
 .tweet:hover .tweet-footer p {
   color: #474747;
 }
-
-
 
 .tweet-text {
   color: #bebebe;
