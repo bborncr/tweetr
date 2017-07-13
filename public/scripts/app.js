@@ -8,7 +8,8 @@ function escape(str) {
 // feed in a tweet object, returns the tweet <article> html
 function createTweetElement(tweet) {
 
-  var date = new Date(tweet.created_at);
+  // var date = new Date(tweet.created_at);
+  var date = moment(tweet.created_at).fromNow();
 
   var $header = $("<header>").addClass('tweet-header');
   $header.append($(`<img src="${tweet.user.avatars.small}"/>`));
@@ -47,7 +48,7 @@ function loadTweets(){
     .done((tweets) => {
       renderTweets(tweets);
     });
-}
+  }
 
 // Better to put the Document Ready wrap down here...less easy to screw things up
 $( document ).ready(function(){
