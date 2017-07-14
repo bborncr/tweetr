@@ -66,10 +66,10 @@ $( document ).ready(function(){
     var $tweetInput = $(this);
     var numChars = $tweetInput.find('.primary-input').val().length;
     if(numChars > 140){
-      alert("Tweets are limited to < 140 characters!");
+      $.flash('Tweets are limited to < 140 characters!');
       return;
     } else if(numChars === 0){
-      alert("Message is empty!");
+      $.flash('Message is empty!');
       return;
     }
 
