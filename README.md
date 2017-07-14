@@ -10,4 +10,4 @@ Tweeter is a simple, single-page Twitter clone used to practice HTML, CSS, JS, j
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Screenshot
-!(https://github.com/bborncr/tweetr/blob/master/public/images/tweeter.png)
+![Tweeter Screenshot](https://github.com/bborncr/tweetr/blob/master/public/images/tweeter.png)
