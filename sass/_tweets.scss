@@ -1,13 +1,13 @@
 .tweet {
   color: #bebebe;
   background: white;
-  border: 1px solid #bebebe;
+  border: 1px solid $no-hover-color;
   border-radius: 5px;
   margin: 1em 2em 1em 2em;
 }
 
 .tweet:hover {
-  border: 1px solid #474747;
+  border: 1px solid $hover-color;
 }
 
 .tweet header {
@@ -23,7 +23,7 @@
 }
 
 .tweet h1 {
-  color: #bebebe;
+  color: $no-hover-color;
   float: left;
   font-size: 165%;
   margin: 0;
@@ -31,11 +31,11 @@
 }
 
 .tweet:hover h1 {
-  color: #474747;
+  color: $hover-color;
 }
 
 .tweet h2 {
-  color: #bebebe;
+  color: $no-hover-color;
   float: right;
   font-size: 100%;
   margin: 0;
@@ -43,7 +43,7 @@
 }
 
 .tweet:hover h2 {
-  color: #474747;
+  color: $hover-color;
 }
 
 .tweet i {
@@ -70,26 +70,26 @@
 }
 
 .tweet:hover .tweet-footer {
-  color: #474747;
+  color: $hover-color;
 }
 
 .tweet-footer p {
-  color: #bebebe;
+  color: $no-hover-color;
   margin-top: 6px;
   padding-bottom: .5em;
   padding-left: .5em;
 }
 
 .tweet:hover .tweet-footer p {
-  color: #474747;
+  color: $hover-color;
 }
 
 .tweet-text {
-  color: #bebebe;
+  color: $no-hover-color;
   margin: 0;
   padding: .5em;
 }
 
 .tweet:hover .tweet-text {
-  color: #474747;
+  color: $hover-color;
 }
